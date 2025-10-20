@@ -1,0 +1,90 @@
+		/**********event************/
+		
+		JButton btnNewButton = new JButton("新增訂單");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+				
+				String Name=name.getText();
+				String Babyformula=babyformula.getText();
+				String Diaper=diaper.getText();
+				
+				
+				
+				int B=Integer.parseInt(Babyformula);
+				int D=Integer.parseInt(Diaper);
+				
+				Order o=new Order(Name,B,D);
+				
+				output.setText(
+						"訂單細目:"+
+				"\n訂單編號:"+o.getName()+
+				"\n奶粉:"+o.getBabyformula()+" 罐"+
+				"\n尿布:"+o.getDiaper()+" 袋"+
+				"\n共:"+o.getSum()+"元");
+				
+				
+			}
+		});
+		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnNewButton.setFont(new Font("新細明體", Font.PLAIN, 16));
+		btnNewButton.setForeground(new Color(0, 0, 0));
+		btnNewButton.setBounds(227, 145, 141, 21);
+		panel_1.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("重設");
+		
+		btnNewButton_1.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        // 清空文字欄位
+		    	name.setText("");
+		    	babyformula.setText("");
+		    	diaper.setText("");
+		    	output.setText("");
+		        
+		    }
+		});
+		
+		btnNewButton_1.setFont(new Font("新細明體", Font.PLAIN, 16));
+		btnNewButton_1.setBounds(25, 120, 103, 36);
+		panel_2.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("列印");
+		btnNewButton_2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+				
+				try {
+					output.print();
+				}catch (PrinterException e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnNewButton_2.setFont(new Font("新細明體", Font.PLAIN, 16));
+		btnNewButton_2.setBounds(154, 119, 95, 39);
+		panel_2.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("關閉");
+		btnNewButton_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.exit(0);
+			}
+		});	
+		btnNewButton_3.setFont(new Font("新細明體", Font.PLAIN, 16));
+		btnNewButton_3.setBounds(280, 119, 103, 38);
+		panel_2.add(btnNewButton_3);
+			
+		
+	}
+}
+			
+
