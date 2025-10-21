@@ -1,68 +1,25 @@
 # Order
 練習
-src/
-├── controller/
-│ ├── Login.java
-│ ├── boss/
-│ │ ├── BossMain.java
-│ │ ├── MemberPanel.java
-│ │ ├── ProductPanel.java
-│ │ ├── StockPanel.java
-│ │ ├── SalesPanel.java
-│ │ └── HistoryPanel.java
-│ └── sale/
-│ ├── OrderMain.java
-│ ├── CartPanel.java
-│ ├── ReviewPanel.java
-│ ├── HistoryPanel.java
-│ └── MemberPanel.java
-│
-├── dao/
-│ ├── MemberDao.java
-│ ├── OrdersDao.java
-│ ├── OrderItemsDao.java
-│ ├── ProductDao.java
-│ ├── PurchasesDao.java
-│ └── SalesDao.java
-│
-├── dao/impl/
-│ ├── MemberDaoImpl.java
-│ ├── OrdersDaoImpl.java
-│ ├── OrderItemsDaoImpl.java
-│ ├── ProductDaoImpl.java
-│ ├── PurchasesDaoImpl.java
-│ └── SalesDaoImpl.java
-│
-├── model/
-│ ├── Member.java
-│ ├── Orders.java
-│ ├── OrderItems.java
-│ ├── Product.java
-│ └── Purchases.java
-│
-├── service/
-│ ├── MemberService.java
-│ ├── OrdersService.java
-│ ├── OrderItemsService.java
-│ ├── ProductService.java
-│ ├── PurchasesService.java
-│ └── SalesService.java
-│
-├── service/impl/
-│ ├── MemberServiceImpl.java
-│ ├── OrdersServiceImpl.java
-│ ├── OrderItemsServiceImpl.java
-│ ├── ProductServiceImpl.java
-│ ├── PurchasesServiceImpl.java
-│ └── SalesServiceImpl.java
-│
-├── util/
-│ ├── Tool.java
-│ ├── UITool.java
-│ ├── DbConnection.java
-│ ├── ImagePanel.java
-│ └── ExcelExporter.java
-│
-└── resources/
-├── pic1.png
-└── template.xlsx
+主要資料表：member、product、orders、order_items、purchases
+
+# 後台功能
+會員管理：新增、修改、刪除會員資料
+商品管理：CRUD + 圖片上傳
+庫存管理：進貨與庫存量更新
+銷售報表：Excel 匯出銷售統計
+歷史訂單查詢：依日期與會員篩選
+
+# 前台功能
+訂單建立：即時扣庫存、交易控制
+購物車管理：商品新增與移除
+會員中心：更新個人資料、檢視訂單
+歷史訂單查詢：檢視過去交易
+評論系統：顧客可留下產品評價
+
+# UI 設計（WindowBuilder）
+BossMain、OrderMain 為主要視窗
+採用 JPanel + CardLayout 結構
+
+# 測試與驗證
+資料庫：交易 rollback
+報表：匯出 Members list 與 Sales summary
